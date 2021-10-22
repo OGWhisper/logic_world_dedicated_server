@@ -21,5 +21,7 @@ USER ${USER}
 VOLUME ${STEAMAPPDIR}
 WORKDIR ${HOMEDIR}
 
+CMD ["bash", "entry.sh"]
+
 EXPOSE 43531/tcp \
     43531/udp
