@@ -1,27 +1,19 @@
-FROM cm2network/steamcmd:latest
+FROM alpine:3.14
 
 LABEL maintainer="ogwhisper502@gmail.com"
 
-ENV STEAMAPPID 1252670
-ENV STEAMAPP logic_world
-ENV STEAMAPPDIR "${HOMEDIR}/${STEAMAPP}_dedicated"
+ENV LANG=en_GB.UTF-8
+
 ENV DLURL https://github.com/OGWhisper/logic_world_dedicated_server.git
 
 RUN set -x
-RUN apt-get update
-RUN apt-get install -y --no-install-recommends --no-install-suggests wget=1.20.1-1.1 ca-certificates=20190110 lib32z1=1:1.2.11.dfsg-1
 
-mkdir -p "${STEAMAPPDIR}"
+RUN apk add git
 
+RUN echo TEST
 RUN git clone "${DLURL}"
-RUN mv logic_world_dedicated_server/* "${HOMEDIR}"
-RUN chmod +x "${HOMEDIR}/entry.sh"
 
-USER ${USER}
-VOLUME ${STEAMAPPDIR}
-WORKDIR ${HOMEDIR}
-
-CMD ["bash", "entry.sh"]
+CMD ["sh", "/logic_world_dedicated_server/entry.sh"]
 
 EXPOSE 43531/tcp \
     43531/udp

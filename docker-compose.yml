@@ -1,0 +1,8 @@
+version: '3.8'
+services:
+  lwserver:
+    image: ogwhisper/test
+    ports:
+      - "43531:43531"
+    volumes:
+      - "/mnt/lwserver:/lwserver"
