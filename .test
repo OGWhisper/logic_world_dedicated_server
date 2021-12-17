@@ -23,5 +23,5 @@ WORKDIR ${HOMEDIR}
 
 CMD ["bash", "entry.sh"]
 
-EXPOSE 43531/tcp \
+EXPOSE /tcp \
     43531/udp
