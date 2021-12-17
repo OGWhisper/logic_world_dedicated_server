@@ -17,4 +17,3 @@ echo "===================="
 echo ""
 echo ""
 echo ""
-sleep 2000
